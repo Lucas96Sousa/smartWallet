@@ -1,18 +1,16 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+// import {View, Text} from 'react-native';
 
-import {Container, Label} from './styles';
+import {Container} from './styles';
+
+import BalancePanel from '../../components/BalancePanel';
 
 const Main = () => {
   return (
     <>
       <Container>
-        <Label>Main</Label>
+        <BalancePanel />
       </Container>
-
-      <View>
-        <Text />
-      </View>
     </>
   );
 };
