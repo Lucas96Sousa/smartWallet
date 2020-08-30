@@ -1,18 +1,20 @@
 import React from 'react';
-// import {View, Text} from 'react-native';
-
-import {Container} from './styles';
+import {View, SafeAreaView} from 'react-native';
 
 import BalancePanel from '../../components/BalancePanel';
 import EntrySumary from '../../components/EntrySumary';
+import EntryList from '../../components/EntryList';
 
 const Main = () => {
   return (
     <>
-      <Container>
-        <BalancePanel />
-        <EntrySumary />
-      </Container>
+      <SafeAreaView style={{justifyContent: 'center'}}>
+        <View>
+          <BalancePanel />
+          <EntrySumary />
+          <EntryList />
+        </View>
+      </SafeAreaView>
     </>
   );
 };

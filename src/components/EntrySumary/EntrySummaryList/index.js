@@ -1,13 +1,30 @@
 import React from 'react';
-import {FlatList} from 'react-native';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
 
 import {Container, Label} from './styles';
+
+const styles = StyleSheet.create({
+  container: {
+    // flex: 1,
+  },
+
+  title: {
+    fontSize: 22,
+    fontWeight: '700',
+    marginTop: 10,
+    marginBottom: 10,
+  },
+
+  label: {
+    fontSize: 22,
+  },
+});
 
 const EntrySummaryList = () => {
   return (
     <>
-      <Container>
-        <Label>Categorias</Label>
+      <View style={styles.container}>
+        <Text style={styles.title}>Categorias</Text>
         <FlatList
           data={[
             {key: 'Alimentação: R$ 201'},
@@ -16,9 +33,11 @@ const EntrySummaryList = () => {
             {key: 'Lazer: R$120'},
             {key: 'Outros: R$1000'},
           ]}
-          renderItem={({item}) => <Label> -{item.key} </Label>}
+          renderItem={({item}) => (
+            <Text style={styles.label}> -{item.key} </Text>
+          )}
         />
-      </Container>
+      </View>
     </>
   );
 };
