@@ -1,10 +1,11 @@
 import React from 'react';
 import Main from './pages/Main';
+import NewEntry from './pages/NewEntry';
 
 const App = () => {
   return (
     <>
-      <Main />
+      <NewEntry />
     </>
   );
 };
