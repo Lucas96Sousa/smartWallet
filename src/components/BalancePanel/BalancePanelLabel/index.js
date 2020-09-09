@@ -1,23 +1,15 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
+import {Button} from 'react-native';
 
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  label: {fontSize: 22},
-});
+import {Container, Label, Value} from './styles';
 
 const BalancePanelLabel = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>Saldo Atual</Text>
-      <Text style={styles.label}>R$2.102,45</Text>
+    <Container>
+      <Label>Saldo Atual</Label>
+      <Value>R$2.102,45</Value>
       <Button title="Adicionar" />
-    </View>
+    </Container>
   );
 };
 
