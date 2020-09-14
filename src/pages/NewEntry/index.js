@@ -1,9 +1,9 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, Button} from 'react-native';
 
 import BalanceLabel from '../../components/BalanceLabel';
 
-import {Container} from './styles';
+import {Container, InputValue, FooterButtons, Input} from './styles';
 
 const NewEntry = () => {
   return (
@@ -12,6 +12,18 @@ const NewEntry = () => {
         <Container>
           <BalanceLabel />
         </Container>
+
+        <InputValue>
+          <Input />
+          <Input />
+          <Button title="GPS" />
+          <Button title="Camera" />
+        </InputValue>
+
+        <FooterButtons>
+          <Button title="Adicionar" />
+          <Button title="Cancelar" />
+        </FooterButtons>
       </SafeAreaView>
     </>
   );

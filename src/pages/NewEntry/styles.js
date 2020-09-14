@@ -10,3 +10,5 @@ export const Input = styled.TextInput`
   border-color: #000;
   border-width: 1px;
 `;
+
+export const FooterButtons = styled.View``;
