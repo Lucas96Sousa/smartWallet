@@ -8,7 +8,7 @@ import EntryList from '../../components/EntryList';
 const Main = () => {
   return (
     <>
-      <SafeAreaView style={{justifyContent: 'center'}}>
+      <SafeAreaView style={{justifyContent: 'center', padding: 10}}>
         <View>
           <BalancePanel />
           <EntrySumary />
