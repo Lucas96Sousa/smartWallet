@@ -1,5 +1,5 @@
 import React from 'react';
-// import {View} from 'react-native';
+import {SafeAreaView} from 'react-native';
 
 import {Picker} from '@react-native-community/picker';
 import EntryLabel from '../../components/BalanceLabel';
@@ -11,14 +11,21 @@ import {Container, PickerView} from './styles';
 const Report = () => {
   return (
     <>
-      <Container>
-        <EntryLabel />
-        <PickerView>
-          <Picker.Item label="Todas as categoraias" />
-        </PickerView>
-        <EntrySumary />
-        <EntryList />
-      </Container>
+      <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
+        <Container>
+          <EntryLabel />
+          <PickerView>
+            <Picker>
+              <Picker.Item label="Todas as categoraias" />
+            </Picker>
+            <Picker>
+              <Picker.Item label="Ùltimos 7 dias" />
+            </Picker>
+          </PickerView>
+          <EntrySumary />
+          <EntryList />
+        </Container>
+      </SafeAreaView>
     </>
   );
 };
