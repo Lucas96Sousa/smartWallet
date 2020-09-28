@@ -6,7 +6,7 @@ import EntryLabel from '../../components/BalanceLabel';
 import EntrySumary from '../../components/EntrySumary';
 import EntryList from '../../components/EntryList';
 
-import {Container, PickerView} from './styles';
+import {Container, PickerView, FooterButtons, Button} from './styles';
 
 const Report = () => {
   return (
@@ -16,7 +16,7 @@ const Report = () => {
           <EntryLabel />
           <PickerView>
             <Picker>
-              <Picker.Item label="Todas as categoraias" />
+              <Picker.Item label="Todas as categorias" />
             </Picker>
             <Picker>
               <Picker.Item label="Ùltimos 7 dias" />
@@ -24,6 +24,11 @@ const Report = () => {
           </PickerView>
           <EntrySumary />
           <EntryList />
+
+          <FooterButtons>
+            <Button title="Salvar" />
+            <Button title="Fechar" />
+          </FooterButtons>
         </Container>
       </SafeAreaView>
     </>
