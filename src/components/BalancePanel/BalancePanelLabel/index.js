@@ -1,14 +1,19 @@
 import React from 'react';
 import {Button} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 import {Container, Label, Value} from './styles';
 
-const BalancePanelLabel = () => {
+const BalancePanelLabel = ({currencyBalance}) => {
+  const navigation = useNavigation();
   return (
     <Container>
       <Label>Saldo Atual</Label>
-      <Value>R$2.102,45</Value>
-      <Button title="Adicionar" />
+      <Value>{currencyBalance}</Value>
+      <Button
+        title="Adicionar"
+        onPress={() => navigation.navigate('NewEntry')}
+      />
     </Container>
   );
 };

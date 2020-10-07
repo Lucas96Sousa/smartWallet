@@ -9,11 +9,12 @@ const Navigation = createStackNavigator();
 
 const Routes = () => (
   <Navigation.Navigator
+    initalRouteName="Main"
     screenOptions={{
       headerShown: false,
     }}>
-    {/* <Navigation.Screen name="Main" component={Main} />
-    <Navigation.Screen name="NewEntry" component={NewEntry} /> */}
+    <Navigation.Screen name="Main" component={Main} />
+    <Navigation.Screen name="NewEntry" component={NewEntry} />
     <Navigation.Screen name="Report" component={Report} />
   </Navigation.Navigator>
 );

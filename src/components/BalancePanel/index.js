@@ -1,15 +1,15 @@
 import React from 'react';
 // import {View} from 'react-native';
 
-import BalancePainelLabel from './BalancePanelLabel';
+import BalancePanelLabel from './BalancePanelLabel';
 import BalancePanelChart from './BalancePanelChart';
 
 // import { Container } from './styles';
 
-const BalancePanel = () => {
+const BalancePanel = ({currencyBalance}) => {
   return (
     <>
-      <BalancePainelLabel />
+      <BalancePanelLabel currencyBalance={currencyBalance} />
       <BalancePanelChart />
     </>
   );

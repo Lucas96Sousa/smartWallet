@@ -1,11 +1,13 @@
 import React from 'react';
 import {SafeAreaView, Button} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 import BalanceLabel from '../../components/BalanceLabel';
 
 import {Container, InputValue, FooterButtons, Input} from './styles';
 
 const NewEntry = () => {
+  const navigation = useNavigation();
   return (
     <>
       <SafeAreaView>
@@ -22,7 +24,7 @@ const NewEntry = () => {
 
         <FooterButtons>
           <Button title="Adicionar" />
-          <Button title="Cancelar" />
+          <Button title="Cancelar" onPress={() => navigation.goBack(``)} />
         </FooterButtons>
       </SafeAreaView>
     </>
