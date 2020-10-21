@@ -8,11 +8,12 @@ import {Container, InputValue, FooterButtons, Input} from './styles';
 
 const NewEntry = () => {
   const navigation = useNavigation();
+  const currencyBalance = 2045.85;
   return (
     <>
       <SafeAreaView>
         <Container>
-          <BalanceLabel />
+          <BalanceLabel currencyBalance={currencyBalance} />
         </Container>
 
         <InputValue>

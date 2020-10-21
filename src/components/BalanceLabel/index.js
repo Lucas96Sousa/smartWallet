@@ -3,7 +3,7 @@ import React from 'react';
 
 import {Container, Label, Value} from './styles';
 
-const BalanceLabel = () => {
+const BalanceLabel = ({currencyBalance}) => {
   return (
     <>
       <Container>

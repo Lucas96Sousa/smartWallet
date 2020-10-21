@@ -21,17 +21,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const EntryList = () => {
+const EntryList = ({entries}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Últimos Lançamentos</Text>
       <FlatList
-        data={[
-          {key: 'Padaraia Asa Branca: R$10'},
-          {key: 'Supermercado Isadora: R$ 190'},
-          {key: 'Posto Ipiranga: R$ 190'},
-        ]}
-        renderItem={({item}) => <Text style={styles.label}>{item.key}</Text>}
+        data={entries}
+        renderItem={({item}) => (
+          <Text style={styles.label}>
+            {' '}
+            - {item.description} -R$ {item.amount}
+          </Text>
+        )}
       />
     </View>
   );

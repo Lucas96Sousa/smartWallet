@@ -5,11 +5,11 @@ import EntrySummaryList from './EntrySummaryList';
 
 // import { Container } from './styles';
 
-const EntrySumary = () => {
+const EntrySumary = ({entriesGroup}) => {
   return (
     <>
       <EntrySummaryChart />
-      <EntrySummaryList />
+      <EntrySummaryList entriesGroup={entriesGroup} />
     </>
   );
 };
