@@ -6,6 +6,7 @@ import {Container, Label, Value} from './styles';
 
 const BalancePanelLabel = ({currencyBalance}) => {
   const navigation = useNavigation();
+
   return (
     <Container>
       <Label>Saldo Atual</Label>
