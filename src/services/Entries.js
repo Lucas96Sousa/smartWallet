@@ -1,19 +1,29 @@
 import {Alert} from 'react-native';
+import uuid from 'react-native-uuid';
 
 import {getRealm} from './Realm';
 
-export const saveEntry = async value => {
+export const getEntries = async () => {
+  const realm = await getRealm();
+
+  const entries = realm.objects('Entry');
+
+  console.log('getEntries :: entries ', JSON.stringify(entries));
+
+  return entries;
+};
+
+export const saveEntry = async (value, entry = {}) => {
   const realm = await getRealm();
 
   let data = {};
-  const {amount} = value;
 
   try {
     realm.write(() => {
       data = {
-        id: 'abc',
-        amount,
-        entryAt: new Date(),
+        id: value.id || entry.id || uuid.v4(),
+        amount: value.amount || entry.amount,
+        entryAt: value.entryAt || entry.entryAt,
         isInit: false,
       };
 
@@ -30,4 +40,20 @@ export const saveEntry = async value => {
   }
 
   return data;
+};
+
+export const deleteEntry = async entry => {
+  const realm = await getRealm();
+
+  try {
+    realm.write(() => {
+      realm.delete(entry);
+    });
+  } catch (error) {
+    console.error(
+      'deleteEntry:: error on delete object: ',
+      JSON.stringify(entry),
+    );
+    Alert.alert('Erro ao deletar os lançamento');
+  }
 };

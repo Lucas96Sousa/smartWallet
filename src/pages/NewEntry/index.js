@@ -1,21 +1,45 @@
 import React, {useState} from 'react';
 import {SafeAreaView, Button} from 'react-native';
+
 import {useNavigation} from '@react-navigation/native';
 
 import BalanceLabel from '../../components/BalanceLabel';
 
-import {saveEntry} from '../../services/Entries';
+import {saveEntry, deleteEntry} from '../../services/Entries';
 import {Container, InputValue, FooterButtons, Input} from './styles';
 
-const NewEntry = () => {
+const NewEntry = ({route}) => {
   const navigation = useNavigation();
   const currencyBalance = 2045.85;
-  const [amount, setAmount] = useState('0.00');
 
-  const save = () => {
-    const value = {amount: parseFloat(amount)};
-    console.log('NewEntry:: save', value);
-    saveEntry(value);
+  const entry = route.params?.entry
+    ? route.params.entry
+    : {
+        id: null,
+        amount: 0,
+        entryAt: new Date(),
+      };
+
+  const [amount, setAmount] = useState(`${entry.amount}`);
+
+  const onClose = () => {
+    navigation.goBack();
+  };
+
+  const isValid = () => {
+    return false;
+  };
+
+  const onSave = () => {
+    const data = {amount: parseFloat(amount)};
+    console.log('NewEntry:: save', data);
+    saveEntry(data, entry);
+    onClose();
+  };
+
+  const onDelete = () => {
+    deleteEntry(entry);
+    onClose();
   };
 
   return (
@@ -37,8 +61,15 @@ const NewEntry = () => {
         </InputValue>
 
         <FooterButtons>
-          <Button title="Adicionar" onPress={save} />
-          <Button title="Cancelar" onPress={() => navigation.goBack(``)} />
+          <Button
+            title="Adicionar"
+            onPress={() => {
+              isValid() && onSave();
+            }}
+          />
+          <Button title="Excluir" onPress={onDelete} />
+
+          <Button title="Cancelar" onPress={onClose} />
         </FooterButtons>
       </SafeAreaView>
     </>

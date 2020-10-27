@@ -5,7 +5,7 @@ import BalancePanel from '../../components/BalancePanel';
 import EntrySumary from '../../components/EntrySumary';
 import EntryList from '../../components/EntryList';
 
-const Main = () => {
+const Main = ({navigation}) => {
   const currency = 2064.95;
 
   const entriesGroup = [
@@ -16,19 +16,19 @@ const Main = () => {
     {key: '5', description: 'Outros', amount: 1000},
   ];
 
-  const entries = [
-    {key: '1', description: 'Padaraia Asa Branca', amount: 10},
-    {key: '2', description: 'Supermercado Isadora', amount: 190},
-    {key: '3', description: 'Posto Ipiranga', amount: 190},
-  ];
-
   return (
     <>
       <SafeAreaView style={{justifyContent: 'center', padding: 10}}>
         <View>
           <BalancePanel currencyBalance={currency} />
           <EntrySumary entriesGroup={entriesGroup} />
-          <EntryList entries={entries} />
+          <EntryList navigation={navigation} />
+          {/* onEntryPress={entry} => {
+            const entryToJson = JSON.parse(JSON.stringfy(entry));
+            navigation.navigate('NewEntry, {
+              entry: entryToJson
+            )}
+          }} */}
         </View>
       </SafeAreaView>
     </>
