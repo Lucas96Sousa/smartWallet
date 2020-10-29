@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-expressions */
 import React, {useState} from 'react';
-import {SafeAreaView, Button} from 'react-native';
+import {SafeAreaView, Button, LogBox} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
@@ -19,6 +20,9 @@ const NewEntry = ({route}) => {
         amount: 0,
         entryAt: new Date(),
       };
+  LogBox.ignoreLogs([
+    'Non-serializable values were found in the navigation state',
+  ]);
 
   const [amount, setAmount] = useState(`${entry.amount}`);
 
@@ -27,6 +31,9 @@ const NewEntry = ({route}) => {
   };
 
   const isValid = () => {
+    if (parseFloat(amount) !== 0) {
+      return true;
+    }
     return false;
   };
 

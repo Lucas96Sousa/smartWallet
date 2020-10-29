@@ -5,6 +5,8 @@ import BalancePanel from '../../components/BalancePanel';
 import EntrySumary from '../../components/EntrySumary';
 import EntryList from '../../components/EntryList';
 
+import {Container} from './styles';
+
 const Main = ({navigation}) => {
   const currency = 2064.95;
 
@@ -18,19 +20,17 @@ const Main = ({navigation}) => {
 
   return (
     <>
-      <SafeAreaView style={{justifyContent: 'center', padding: 10}}>
-        <View>
-          <BalancePanel currencyBalance={currency} />
-          <EntrySumary entriesGroup={entriesGroup} />
-          <EntryList navigation={navigation} />
-          {/* onEntryPress={entry} => {
+      <Container>
+        <BalancePanel currencyBalance={currency} />
+        <EntrySumary entriesGroup={entriesGroup} />
+        <EntryList navigation={navigation} />
+        {/* onEntryPress={entry} => {
             const entryToJson = JSON.parse(JSON.stringfy(entry));
             navigation.navigate('NewEntry, {
               entry: entryToJson
             )}
           }} */}
-        </View>
-      </SafeAreaView>
+      </Container>
     </>
   );
 };
