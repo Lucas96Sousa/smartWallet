@@ -1,11 +1,13 @@
+/* eslint-disable no-use-before-define */
 import React, {useState} from 'react';
-import {View, TextInput, Button, StyleSheet} from 'react-native';
+import {View, TextInput, Button} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import BalanceLabel from '../../components/BalanceLabel';
 
-import {saveEntry} from '../../services/Entries';
-import {deleteEntry} from '../../services/Entries';
+import {saveEntry, deleteEntry} from '../../services/Entries';
+
+import styles from './styles';
 
 const NewEntry = ({route}) => {
   const navigation = useNavigation();
@@ -55,6 +57,7 @@ const NewEntry = ({route}) => {
       <View>
         <TextInput
           style={styles.input}
+          keyboardType="numeric"
           onChangeText={text => setAmount(text)}
           value={amount}
         />
@@ -76,16 +79,5 @@ const NewEntry = ({route}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-  },
-  input: {
-    borderColor: '#000',
-    borderWidth: 1,
-  },
-});
 
 export default NewEntry;

@@ -1,16 +1,15 @@
 import React from 'react';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
-
 import LinearGradient from 'react-native-linear-gradient';
 
+import Icon from 'react-native-vector-icons/AntDesign';
 import BalancePanelLabel from './BalancePanelLabel';
 import BalancePanelChart from './BalancePanelChart';
 
-import Icon from 'react-native-vector-icons/Entypo';
-
 import Colors from '../../styles/Colors';
+
+import styles from './styles';
 
 const BalancePanel = ({onNewEntryPress}) => {
   const currentBalance = 2064.35;
@@ -23,22 +22,10 @@ const BalancePanel = ({onNewEntryPress}) => {
         <BalancePanelChart />
       </LinearGradient>
       <TouchableOpacity onPress={onNewEntryPress} style={styles.button}>
-        <Icon name="circle-with-plus" size={35} color={Colors.green} />
+        <Icon name="pluscircle" size={35} style color={Colors.green} />
       </TouchableOpacity>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-  },
-  panel: {
-    paddingVertical: 10,
-  },
-  button: {
-    flexDirection: 'row-reverse',
-  },
-});
 
 export default BalancePanel;

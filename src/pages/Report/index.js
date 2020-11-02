@@ -1,9 +1,13 @@
 import React from 'react';
-import {View, Picker, Button} from 'react-native';
+import {View, Button} from 'react-native';
+
+import {Picker} from '@react-native-community/picker';
 
 import BalanceLabel from '../../components/BalanceLabel';
 import EntrySummary from '../../components/EntrySummary';
 import EntryList from '../../components/EntryList';
+
+// import styles from './styles';
 
 const Report = () => {
   const currentBalance = 2065.35;
