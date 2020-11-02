@@ -1,4 +1,4 @@
-export const CategorySchema = {
+const CategorySchema = {
   name: 'Category',
   primaryKey: 'id',
   properties: {
@@ -12,3 +12,5 @@ export const CategorySchema = {
     entries: 'Entry[]',
   },
 };
+
+export default CategorySchema;

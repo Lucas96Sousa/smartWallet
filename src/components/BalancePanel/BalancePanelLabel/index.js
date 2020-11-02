@@ -1,22 +1,29 @@
 import React from 'react';
-import {Button} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {View, Text, StyleSheet} from 'react-native';
+import Colors from '../../../styles/Colors';
 
-import {Container, Label, Value} from './styles';
-
-const BalancePanelLabel = ({currencyBalance}) => {
-  const navigation = useNavigation();
-
+const BalancePanelLabel = ({currentBalance}) => {
   return (
-    <Container>
-      <Label>Saldo Atual</Label>
-      <Value>{currencyBalance}</Value>
-      <Button
-        title="Adicionar"
-        onPress={() => navigation.navigate('NewEntry')}
-      />
-    </Container>
+    <View style={styles.container}>
+      <Text style={styles.label}>Saldo atual</Text>
+      <Text style={styles.value}>{currentBalance}</Text>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    // flex: 1,
+    alignItems: 'center',
+  },
+  label: {
+    fontSize: 18,
+    color: Colors.white,
+  },
+  value: {
+    fontSize: 22,
+    color: Colors.white,
+  },
+});
 
 export default BalancePanelLabel;

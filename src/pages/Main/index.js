@@ -1,38 +1,37 @@
 import React from 'react';
-import {View, SafeAreaView} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 
 import BalancePanel from '../../components/BalancePanel';
-import EntrySumary from '../../components/EntrySumary';
+import EntrySummary from '../../components/EntrySummary';
 import EntryList from '../../components/EntryList';
 
-import {Container} from './styles';
+import Colors from '../../styles/Colors';
 
 const Main = ({navigation}) => {
-  const currency = 2064.95;
-
-  const entriesGroup = [
+  const entriesGrouped = [
     {key: '1', description: 'Alimentação', amount: 201},
-    {key: '2', description: 'Combustível', amount: 50},
-    {key: '3', description: 'Alguel', amount: 800},
-    {key: '4', description: 'Lazer', amount: 80},
-    {key: '5', description: 'Outros', amount: 1000},
+    {key: '2', description: 'Combustível', amount: 12},
+    {key: '3', description: 'Aluguel', amount: 120},
+    {key: '4', description: 'Lazer', amount: 250},
+    {key: '5', description: 'Outros', amount: 1200},
   ];
 
   return (
-    <>
-      <Container>
-        <BalancePanel currencyBalance={currency} />
-        <EntrySumary entriesGroup={entriesGroup} />
-        <EntryList navigation={navigation} />
-        {/* onEntryPress={entry} => {
-            const entryToJson = JSON.parse(JSON.stringfy(entry));
-            navigation.navigate('NewEntry, {
-              entry: entryToJson
-            )}
-          }} */}
-      </Container>
-    </>
+    <View style={styles.container}>
+      <BalancePanel onNewEntryPress={() => navigation.navigate('NewEntry')} />
+
+      <EntrySummary entriesGrouped={entriesGrouped} />
+      <EntryList navigation={navigation} />
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.background,
+    padding: 10,
+  },
+});
 
 export default Main;

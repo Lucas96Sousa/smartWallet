@@ -1,4 +1,4 @@
-export const EntrySchema = {
+const EntrySchema = {
   name: 'Entry',
   primaryKey: 'id',
   properties: {
@@ -11,6 +11,8 @@ export const EntrySchema = {
     address: 'string?',
     photo: 'string?',
     isInit: 'bool',
-    category: 'Category',
+    category: 'Category?',
   },
 };
+
+export default EntrySchema;

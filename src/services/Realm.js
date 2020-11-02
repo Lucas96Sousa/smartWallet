@@ -1,6 +1,7 @@
 import Realm from 'realm';
-import {CategorySchema} from '../schemas/CategorySchema';
-import {EntrySchema} from '../schemas/EntrySchema';
+
+import CategorySchema from '../schemas/CategorySchema';
+import EntrySchema from '../schemas/EntrySchema';
 
 export const getRealm = async () => {
   const realm = await Realm.open({

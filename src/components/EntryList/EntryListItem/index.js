@@ -1,14 +1,14 @@
 import React from 'react';
-// import {View} from 'react-native';
-
-import {Container, Label} from './styles';
+import {View, Text, StyleSheet} from 'react-native';
 
 const EntryListItem = () => {
   return (
-    <Container>
-      <Label>EntryListItem</Label>
-    </Container>
+    <View>
+      <Text>EntryListItem</Text>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({});
 
 export default EntryListItem;

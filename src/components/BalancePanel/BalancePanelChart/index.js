@@ -1,10 +1,10 @@
 import React from 'react';
-import {View} from 'react-native';
-
-// import { Container } from './styles';
+import {View, StyleSheet} from 'react-native';
 
 const BalancePanelChart = () => {
   return <View />;
 };
+
+const styles = StyleSheet.create({});
 
 export default BalancePanelChart;

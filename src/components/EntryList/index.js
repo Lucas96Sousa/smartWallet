@@ -1,28 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, Button, FlatList, StyleSheet} from 'react-native';
 
-// import EntryListItem from './EntryListItem';
+import EntryListItem from './EntryListItem';
 
 import {getEntries} from '../../services/Entries';
-
-// import { Container } from './styles';
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-  },
-
-  title: {
-    fontSize: 22,
-    fontWeight: '700',
-    marginTop: 10,
-    marginBottom: 10,
-  },
-
-  label: {
-    fontSize: 22,
-  },
-});
 
 const EntryList = ({navigation}) => {
   const [entries, setEntries] = useState([]);
@@ -39,14 +20,14 @@ const EntryList = ({navigation}) => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View>
       <Text style={styles.title}>Últimos Lançamentos</Text>
       <FlatList
         data={entries}
         renderItem={({item}) => (
           <View>
-            <Text style={styles.label}>
-              - {item.description} R$ {item.amount}
+            <Text style={styles.entry}>
+              - {item.description} - ${item.amount}
             </Text>
             <Button
               title={item.id}
@@ -60,5 +41,17 @@ const EntryList = ({navigation}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    // flex: 1,
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginTop: 10,
+    marginBottom: 10,
+  },
+});
 
 export default EntryList;

@@ -1,17 +1,26 @@
 import React from 'react';
-// import {} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
-import {Container, Label, Value} from './styles';
-
-const BalanceLabel = ({currencyBalance}) => {
+const BalanceLabel = ({currentBalance}) => {
   return (
-    <>
-      <Container>
-        <Label>Saldo Atual</Label>
-        <Value>R$: 2.064,35</Value>
-      </Container>
-    </>
+    <View style={styles.container}>
+      <Text style={styles.label}>Saldo Atual</Text>
+      <Text style={styles.value}>{currentBalance}</Text>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    // flex: 1
+    alignItems: 'center',
+  },
+  label: {
+    fontSize: 12,
+  },
+  value: {
+    fontSize: 18,
+  },
+});
 
 export default BalanceLabel;

@@ -1,17 +1,15 @@
-/* eslint-disable no-unused-expressions */
 import React, {useState} from 'react';
-import {SafeAreaView, Button, LogBox} from 'react-native';
-
+import {View, TextInput, Button, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import BalanceLabel from '../../components/BalanceLabel';
 
-import {saveEntry, deleteEntry} from '../../services/Entries';
-import {Container, InputValue, FooterButtons, Input} from './styles';
+import {saveEntry} from '../../services/Entries';
+import {deleteEntry} from '../../services/Entries';
 
 const NewEntry = ({route}) => {
   const navigation = useNavigation();
-  const currencyBalance = 2045.85;
+  const currentBalance = 2065.35;
 
   const entry = route.params?.entry
     ? route.params.entry
@@ -20,26 +18,23 @@ const NewEntry = ({route}) => {
         amount: 0,
         entryAt: new Date(),
       };
-  LogBox.ignoreLogs([
-    'Non-serializable values were found in the navigation state',
-  ]);
 
   const [amount, setAmount] = useState(`${entry.amount}`);
-
-  const onClose = () => {
-    navigation.goBack();
-  };
 
   const isValid = () => {
     if (parseFloat(amount) !== 0) {
       return true;
     }
+
     return false;
   };
 
   const onSave = () => {
-    const data = {amount: parseFloat(amount)};
-    console.log('NewEntry:: save', data);
+    const data = {
+      amount: parseFloat(amount),
+    };
+
+    console.log('NewEntry :: save ', data);
     saveEntry(data, entry);
     onClose();
   };
@@ -49,38 +44,48 @@ const NewEntry = ({route}) => {
     onClose();
   };
 
+  const onClose = () => {
+    navigation.goBack();
+  };
+
   return (
-    <>
-      <SafeAreaView>
-        <Container>
-          <BalanceLabel currencyBalance={currencyBalance} />
-        </Container>
+    <View style={styles.container}>
+      <BalanceLabel currentBalance={currentBalance} />
 
-        <InputValue>
-          <Input
-            keyboardType="numeric"
-            onChangeText={text => setAmount(text)}
-            value={amount}
-          />
-          <Input />
-          <Button title="GPS" />
-          <Button title="Camera" />
-        </InputValue>
+      <View>
+        <TextInput
+          style={styles.input}
+          onChangeText={text => setAmount(text)}
+          value={amount}
+        />
+        <TextInput style={styles.input} />
+        <Button title="GPS" />
+        <Button title="Camera" />
+      </View>
 
-        <FooterButtons>
-          <Button
-            title="Adicionar"
-            onPress={() => {
-              isValid() && onSave();
-            }}
-          />
-          <Button title="Excluir" onPress={onDelete} />
-
-          <Button title="Cancelar" onPress={onClose} />
-        </FooterButtons>
-      </SafeAreaView>
-    </>
+      <View>
+        <Button
+          title="Adicionar"
+          onPress={() => {
+            isValid() && onSave();
+          }}
+        />
+        <Button title="Excluir" onPress={onDelete} />
+        <Button title="Cancelar" onPress={onClose} />
+      </View>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+  },
+  input: {
+    borderColor: '#000',
+    borderWidth: 1,
+  },
+});
 
 export default NewEntry;
