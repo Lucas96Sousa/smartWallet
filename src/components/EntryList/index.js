@@ -30,11 +30,10 @@ const EntryList = () => {
       onPressActionButton={() => {}}>
       <FlatList
         data={entries}
+        keyExtractor={item => item.id}
         renderItem={({item}) => (
           <View>
-            <Text style={styles.entry}>
-              - {item.description} - ${item.amount}
-            </Text>
+            <EntryListItem entry={item} />
           </View>
         )}
       />
