@@ -16,5 +16,4 @@ const EntryListItem = ({entry}) => {
     </View>
   ); // 11 59
 };
-
 export default EntryListItem;
