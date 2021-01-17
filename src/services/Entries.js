@@ -1,7 +1,7 @@
 import {Alert} from 'react-native';
 
 import {getRealm} from './Realm';
-import {getUUID} from '../services/UUID';
+import {getUUID} from './UUID';
 
 export const getEntries = async () => {
   const realm = await getRealm();
