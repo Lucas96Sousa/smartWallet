@@ -12,8 +12,11 @@ const Main = ({navigation}) => {
     <View style={styles.container}>
       <BalancePanel onNewEntryPress={() => navigation.navigate('NewEntry')} />
 
-      <EntrySummary />
-      <EntryList />
+      <EntrySummary onPressActionButton={() => navigation.navigate('Report')} />
+      <EntryList
+        onEntryPress={entry => navigation.navigate('NewEntry', {entry})}
+        onPressActionButton={() => navigation.navigate('Report')}
+      />
     </View>
   );
 };

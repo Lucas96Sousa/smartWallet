@@ -9,7 +9,7 @@ import EntryList from '../../components/EntryList';
 
 // import styles from './styles';
 
-const Report = () => {
+const Report = ({navigation}) => {
   const currentBalance = 2065.35;
 
   const entriesGrouped = [
@@ -41,7 +41,7 @@ const Report = () => {
       <EntryList entries={entries} />
       <View>
         <Button title="Salvar" />
-        <Button title="Fechar" />
+        <Button title="Fechar" onPress={() => navigation.goBack()} />
       </View>
     </View>
   );
