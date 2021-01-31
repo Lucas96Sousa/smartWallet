@@ -33,5 +33,6 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-console': 'off',
     'no-unused-expressions': 'off',
+    'no-use-before-define': 'off',
   },
 };

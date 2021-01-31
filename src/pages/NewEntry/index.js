@@ -10,7 +10,6 @@ import styles from './styles';
 
 const NewEntry = ({route}) => {
   const navigation = useNavigation();
-  const currentBalance = 2065.35;
 
   const entry = route.params?.entry
     ? route.params.entry
@@ -51,7 +50,7 @@ const NewEntry = ({route}) => {
 
   return (
     <View style={styles.container}>
-      <BalanceLabel currentBalance={currentBalance} />
+      <BalanceLabel />
 
       <View>
         <TextInput
