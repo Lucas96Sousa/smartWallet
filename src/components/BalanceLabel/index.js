@@ -12,7 +12,9 @@ const BalanceLabel = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Saldo Atual</Text>
-      <LinearGradient colors={[Colors.violet, Colors.blue]}>
+      <LinearGradient
+        style={styles.panel}
+        colors={[Colors.violet, Colors.blue]}>
         <Text style={styles.value}>{currentBalance}</Text>
       </LinearGradient>
     </View>
