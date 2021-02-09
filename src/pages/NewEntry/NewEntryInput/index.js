@@ -1,12 +1,28 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-
+import {View} from 'react-native';
 import {TextInputMask} from 'react-native-masked-text';
 
-const NewEnrtyInput = () => {
+import {styles} from './styles';
+
+const NewEnrtyInput = ({value, onChangeValue}) => {
   return (
     <View>
-      <Text />
+      <TextInputMask
+        style={styles.textInput}
+        type="money"
+        options={{
+          precision: 2,
+          separator: ',',
+          delimiter: '.',
+          unit: '',
+          suffixUnit: '',
+        }}
+        value={value}
+        includeRawValueInChangeText
+        onChangeText={(maskedValue, rawValue) => {
+          onChangeValue(rawValue);
+        }}
+      />
     </View>
   );
 };
